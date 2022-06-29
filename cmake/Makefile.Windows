@@ -1,0 +1,4 @@
+all: build link clean
+
+build:
+	g++ src/Main.cpp -I 
