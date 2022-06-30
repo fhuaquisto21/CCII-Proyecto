@@ -4,5 +4,5 @@
 class BobCharacter: public Character {
     private:
     public:
-        BobCharacter(std::string, float);
+        BobCharacter(float);
 };

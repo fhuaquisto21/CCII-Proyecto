@@ -20,3 +20,18 @@ public:
     void setTexture(std::string);
     void setSprite();
 };
+
+namespace game
+{
+    namespace Object
+    {
+        enum
+        {
+            Character = 0,
+            Item = 1,
+            PowerUp = 2,
+            Image = 3,
+            Wall = 4,
+        };
+    }
+}

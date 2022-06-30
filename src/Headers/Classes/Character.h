@@ -18,10 +18,21 @@ private:
 public:
     Character(std::string, float);
     ~Character() {}
-    //void pushTrash();
-    //void popTrash();
+    // void pushTrash();
+    // void popTrash();
     void move(int);
-    //float getCharacterPosicionX();
-    //float getCharacterPosicionY();
-    //sf::Sprite getCharacterSprite();
+    // float getCharacterPosicionX();
+    // float getCharacterPosicionY();
+    // sf::Sprite getCharacterSprite();
 };
+
+namespace game
+{
+    namespace Character
+    {
+        enum
+        {
+            Bob = 0,
+        };
+    }
+}

@@ -5,7 +5,7 @@
 unsigned int const FPS = 60;
 sf::Color *const BG_COLOR = new sf::Color(255, 255, 255, 255);
 
-Object* bobCharacter = ObjectFactory::getBobCharacter();
+Object* bobCharacter = ObjectFactory::getObject(game::Object::Character, game::Character::Bob);
 
 Game::Game(sf::VideoMode *_size, std::string _name, int _styleScreen)
 {

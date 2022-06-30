@@ -5,7 +5,7 @@ class Player {
         char* name;
     public:
         Player(const char*);
-        ~Playe(){}
+        ~Player(){}
         void setCharacter(int);
 };
 
