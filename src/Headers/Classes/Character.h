@@ -1,24 +1,27 @@
 #include <SFML/Graphics.hpp>
 #include <stack>
+#include "./../../Classes/Object.cpp"
 
-class Character{
-    private:
-        std::string name;
-        std::stack<int>* trash;
-        float speed;
-        sf::Texture* characterTexture;
-        sf::Sprite* characterSprite;
-        void movUp();
-        void movDown();
-        void movLeft();
-        void movRight();
-    public:
-        Character(std::string,float);
-        ~Character(){}
-        void pushTrash();
-        void popTrash();
-        void mov(int);
-        float getCharacterPosicionX();
-        float getCharacterPosicionY();
-        sf::Sprite getCharacterSprite();
+class Character : public Object
+{
+private:
+    // std::string name;
+    // std::stack<int> *trash;
+    float speed;
+    // sf::Texture *characterTexture;
+    // sf::Sprite *characterSprite;
+    void moveUp();
+    void moveDown();
+    void moveLeft();
+    void moveRight();
+
+public:
+    Character(std::string, float);
+    ~Character() {}
+    //void pushTrash();
+    //void popTrash();
+    void move(int);
+    //float getCharacterPosicionX();
+    //float getCharacterPosicionY();
+    //sf::Sprite getCharacterSprite();
 };

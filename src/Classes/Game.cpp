@@ -1,21 +1,18 @@
 #include <SFML/Graphics.hpp>
 #include "../Headers/Classes/Game.h"
-#include "./Character.cpp"
+#include "./../Factories/Object.Factory.cpp"
 
 unsigned int const FPS = 60;
 sf::Color *const BG_COLOR = new sf::Color(255, 255, 255, 255);
 
-std::string na = "JAYAN";
-
-
-Character* character = new Character (na,5.0);
+Object* bobCharacter = ObjectFactory::getBobCharacter();
 
 Game::Game(sf::VideoMode *_size, std::string _name, int _styleScreen)
 {
     this->size = _size;
     this->name = _name;
     this->styleScreen = _styleScreen;
-    //this->scenesManager = ScenesManager::GetInstance();
+    // this->scenesManager = ScenesManager::GetInstance();
     switch (this->styleScreen)
     {
     case 0:
@@ -34,9 +31,9 @@ Game::Game(sf::VideoMode *_size, std::string _name, int _styleScreen)
 
 void Game::draw()
 {
-    //this->window->setView(this->scenesManager->value());
+    // this->window->setView(this->scenesManager->value());
     this->window->clear(*BG_COLOR);
-    this->window->draw(character->getCharacterSprite());
+    this->window->draw(*bobCharacter->getSprite());
     this->window->display();
 }
 
