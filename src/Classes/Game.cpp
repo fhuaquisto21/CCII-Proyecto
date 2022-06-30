@@ -1,8 +1,14 @@
 #include <SFML/Graphics.hpp>
 #include "../Headers/Classes/Game.h"
+#include "./Character.cpp"
 
 unsigned int const FPS = 60;
 sf::Color *const BG_COLOR = new sf::Color(255, 255, 255, 255);
+
+std::string na = "JAYAN";
+
+
+Character* character = new Character (na,5.0);
 
 Game::Game(sf::VideoMode *_size, std::string _name, int _styleScreen)
 {
@@ -30,6 +36,7 @@ void Game::draw()
 {
     //this->window->setView(this->scenesManager->value());
     this->window->clear(*BG_COLOR);
+    this->window->draw(character->getCharacterSprite());
     this->window->display();
 }
 
