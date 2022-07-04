@@ -1,5 +1,6 @@
 #include <SFML/Graphics.hpp>
-#include "./../Headers/Classes/Object.h"
+
+#include "./Object.h"
 
 Object::Object(std::string _name, std::string _type)
 {
@@ -50,3 +51,11 @@ void Object::setSprite()
 {
     this->sprite->setTexture(*this->texture);
 }
+
+bool Object::isCollitionWith(Object *_other) {
+    return this->getSprite()->getGlobalBounds().intersects(_other->getSprite()->getGlobalBounds());
+}
+
+void Object::draw(sf::RenderWindow * _window) {}
+
+void Object::events(sf::Event * _event) {}

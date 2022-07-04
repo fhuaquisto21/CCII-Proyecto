@@ -1,3 +1,6 @@
+#ifndef OBJECT_H
+#define OBJECT_H
+
 #include <SFML/Graphics.hpp>
 
 class Object
@@ -19,19 +22,19 @@ public:
     sf::Texture *getTexture();
     void setTexture(std::string);
     void setSprite();
+    bool isCollitionWith(Object *);
+    virtual void draw(sf::RenderWindow *);
+    virtual void events(sf::Event *);
 };
 
-namespace game
-{
-    namespace Object
-    {
-        enum
-        {
-            Character = 0,
-            Item = 1,
-            PowerUp = 2,
-            Image = 3,
-            Wall = 4,
+namespace gm {
+    namespace Object {
+        enum {
+            BobCharacter = 0,
         };
     }
 }
+
+#include "./Object.cpp"
+
+#endif

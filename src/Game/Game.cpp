@@ -1,18 +1,20 @@
 #include <SFML/Graphics.hpp>
-#include "../Headers/Classes/Game.h"
-#include "./../Factories/Object.Factory.cpp"
+#include "./Game.h"
+#include "./../Object.Factory/Object/Character/Bob.Character.h"
+#include "./../Object.Factory/Object.Factory.h"
+#include "./../Scene.Manager/Scene/Test.Scene.h"
 
 unsigned int const FPS = 60;
 sf::Color *const BG_COLOR = new sf::Color(255, 255, 255, 255);
 
-Object* bobCharacter = ObjectFactory::getObject(game::Object::Character, game::Character::Bob);
+//Object *bobCharacter = ObjectFactory::getObject(gm::Object::BobCharacter);
+Scene *scenet = new TestScene;
 
 Game::Game(sf::VideoMode *_size, std::string _name, int _styleScreen)
 {
     this->size = _size;
     this->name = _name;
     this->styleScreen = _styleScreen;
-    // this->scenesManager = ScenesManager::GetInstance();
     switch (this->styleScreen)
     {
     case 0:
@@ -29,11 +31,28 @@ Game::Game(sf::VideoMode *_size, std::string _name, int _styleScreen)
     this->window->setFramerateLimit(FPS);
 }
 
-void Game::draw()
+void Game::draw(sf::Event &event)
 {
-    // this->window->setView(this->scenesManager->value());
     this->window->clear(*BG_COLOR);
-    this->window->draw(*bobCharacter->getSprite());
+    scenet->draw(this->window);
+    scenet->events(&event);
+    //bobCharacter->draw(this->window);
+    //bobCharacter->events(&event);
+    //this->window->draw(*bobCharacter->getSprite());
+    /*
+    if (event.type == sf::Event::KeyPressed)
+    {
+        if (event.key.code == sf::Keyboard::Up)
+            bobCharacter->move(sf::Keyboard::Up);
+        if (event.key.code == sf::Keyboard::Down)
+            bobCharacter->move(sf::Keyboard::Down);
+        if (event.key.code == sf::Keyboard::Left)
+            bobCharacter->move(sf::Keyboard::Left);
+        if (event.key.code == sf::Keyboard::Right)
+            bobCharacter->move(sf::Keyboard::Right);
+    }
+    */
+    
     this->window->display();
 }
 
@@ -52,6 +71,6 @@ void Game::render()
     {
         sf::Event event;
         this->close(event);
-        this->draw();
+        this->draw(event);
     }
 }

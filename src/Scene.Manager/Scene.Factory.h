@@ -1,5 +1,8 @@
+#ifndef SCENEFACTORY_H
+#define SCENEFACTORY_H
+
 #include <SFML/Graphics.hpp>
-#include "./../Scenes/Scene.h"
+#include "./Scene/Scene.h"
 
 class SceneFactory
 {
@@ -9,5 +12,7 @@ protected:
 public:
     SceneFactory(SceneFactory &_other) = delete;
     void operator=(const SceneFactory &) = delete;
-    static Scene *getScene(int);
+    static Scene *getScene(sf::RenderWindow *, int);
 };
+
+#endif
