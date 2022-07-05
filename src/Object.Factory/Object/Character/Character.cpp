@@ -30,7 +30,7 @@ void Character::events(sf::Event *_event)
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
         this->translate->x += this->speed;
     std::cout << this->translate->x << " " << this->translate->y << std::endl;
-    printf("\e[1;1H\e[2J");
+    //printf("\e[1;1H\e[2J");
 }
 
 void Character::draw(sf::RenderWindow * _window) {

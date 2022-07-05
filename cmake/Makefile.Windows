@@ -7,4 +7,4 @@ compile:
 	g++ -c ./src/Main.cpp -I C:/SFML-2.5.1/include -o ./build/Main.o
 
 link:
-	g++ ./build/Main.o -L C:/SFML-2.5.1/lib -o ./build/Game -lsfml-graphics -lsfml-window -lsfml-system
+	g++ ./build/Main.o -L C:/SFML-2.5.1/lib -o ./Game -lsfml-graphics -lsfml-window -lsfml-system
