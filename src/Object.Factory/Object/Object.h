@@ -8,16 +8,18 @@ class Object
 private:
     std::string type;
     std::string name;
+    std::string mode;
     sf::Texture *texture;
     sf::Sprite *sprite;
 
 public:
-    Object(std::string, std::string);
+    Object(std::string, std::string, std::string);
     ~Object();
     void setPosition(sf::Vector2f);
     sf::Vector2f getPosition();
     std::string getName();
     std::string getType();
+    std::string getMode();
     sf::Sprite *getSprite();
     sf::Texture *getTexture();
     void setTexture(std::string);

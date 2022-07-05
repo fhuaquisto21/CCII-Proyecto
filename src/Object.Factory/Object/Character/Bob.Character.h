@@ -7,7 +7,7 @@ class BobCharacter : public Character
 {
 private:
 public:
-    BobCharacter();
+    BobCharacter(std::string);
     ~BobCharacter();
     void draw(sf::RenderWindow *);
     void events(sf::Event *);

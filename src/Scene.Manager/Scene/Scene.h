@@ -18,9 +18,10 @@ private:
     std::map<std::string, float> *fState;
     std::map<std::string, bool> *bState;
     std::map<std::string, std::string> *sState;
+    std::string mode;
 
 public:
-    Scene(sf::RenderWindow *);
+    Scene(std::string, sf::RenderWindow *);
     ~Scene();
     void addObject(std::string, int);
     void addCamera(std::string, sf::FloatRect);
@@ -34,6 +35,7 @@ public:
     float getFState(std::string);
     bool getBState(std::string);
     std::string getSState(std::string);
+    std::string getMode();
     sf::RenderWindow *getWindow();
     virtual void draw();
     virtual void events(sf::Event *);
@@ -44,6 +46,8 @@ namespace gm {
         enum {
             TestScene = 0,
             NoneScene = 1,
+            ServerScene = 2,
+            ClientScene = 3,
         };
     }
 }

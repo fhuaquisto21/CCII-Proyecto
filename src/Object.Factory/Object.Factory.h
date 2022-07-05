@@ -12,7 +12,7 @@ protected:
 public:
     ObjectFactory(ObjectFactory &_other) = delete;
     void operator=(const ObjectFactory &) = delete;
-    static Object *getObject(int);
+    static Object *getObject(std::string, int);
     
 };
 

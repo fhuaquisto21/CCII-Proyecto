@@ -4,6 +4,8 @@
 #include <SFML/Graphics.hpp>
 #include "./Scene/Test.Scene.h"
 #include "./Scene/None.Scene.h"
+#include "./Scene/Server.Scene.h"
+#include "./Scene/Client.Scene.h"
 
 class SceneFactory
 {

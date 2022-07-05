@@ -1,7 +1,8 @@
 #include "./Scene.h"
 
-Scene::Scene(sf::RenderWindow *_window)
-{  
+Scene::Scene(std::string _mode, sf::RenderWindow *_window)
+{
+    this->mode = _mode;
     this->window = _window;
     this->fState = new std::map<std::string, float>;
     this->bState = new std::map<std::string, bool>;
@@ -12,7 +13,7 @@ Scene::~Scene() {}
 
 void Scene::addObject(std::string _key, int _object)
 {
-    Object *obj = ObjectFactory::getObject(_object);
+    Object *obj = ObjectFactory::getObject("none", _object);
     this->objects.insert(std::make_pair(_key, obj));
 }
 
@@ -70,6 +71,10 @@ bool Scene::getBState(std::string _key)
 std::string Scene::getSState(std::string _key)
 {
     return this->sState->at(_key);
+}
+
+std::string Scene::getMode() {
+    return this->mode;
 }
 
 sf::RenderWindow *Scene::getWindow() {

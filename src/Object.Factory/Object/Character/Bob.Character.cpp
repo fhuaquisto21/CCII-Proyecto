@@ -1,6 +1,6 @@
 #include "./Bob.Character.h"
 
-BobCharacter::BobCharacter(): Character("Bob", 4.f) {
+BobCharacter::BobCharacter(std::string _mode): Character(_mode, "Bob", 4.f) {
     this->setTexture("./src/Assets/Textures/bob_character_texture.png");
     this->setSprite();
 }

@@ -1,6 +1,6 @@
 #include "./Test.Scene.h"
 
-TestScene::TestScene(sf::RenderWindow *_window): Scene(_window) {
+TestScene::TestScene(sf::RenderWindow *_window): Scene("none", _window) {
     //std::string h = "Main Character";
     std::cout << gm::Object::BobCharacter << std::endl;
     this->addObject("player_1_character", gm::Object::BobCharacter);
@@ -22,8 +22,10 @@ void TestScene::draw() {
 
 void TestScene::events(sf::Event *_event) {
     this->getObject("player_1_character")->events(_event);
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::R)) {
-        SceneManager::get()->top();
-        SceneManager::get()->push(this->getWindow(), gm::Scene::NoneScene);
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::C)) {
+        SceneManager::get()->push(this->getWindow(), gm::Scene::ClientScene);
+    }
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::V)) {
+        SceneManager::get()->push(this->getWindow(), gm::Scene::ServerScene);
     }
 }

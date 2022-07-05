@@ -2,10 +2,11 @@
 
 #include "./Object.h"
 
-Object::Object(std::string _name, std::string _type)
+Object::Object(std::string _mode,  std::string _type, std::string _name)
 {
     this->name = _name;
     this->type = _type;
+    this->mode = _mode;
     this->sprite = new sf::Sprite;
     this->texture = new sf::Texture;
 }

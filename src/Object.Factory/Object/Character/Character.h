@@ -15,8 +15,10 @@ private:
     int munition;
     sf::Vector2f *translate;
 
+    void moveServer();
+    void moveClient();
 public:
-    Character(std::string, float);
+    Character(std::string, std::string, float);
     ~Character();
     void move(sf::Event *);
     virtual void events(sf::Event *);

@@ -1,7 +1,7 @@
 #include <SFML/Graphics.hpp>
 #include "./None.Scene.h"
 
-NoneScene::NoneScene(sf::RenderWindow *_window): Scene(_window) {
+NoneScene::NoneScene(sf::RenderWindow *_window): Scene("none", _window) {
     //std::string h = "Main Character";
     //std::cout << gm::Object::BobCharacter << std::endl;
     //this->addObject("player_1_character", gm::Object::BobCharacter);

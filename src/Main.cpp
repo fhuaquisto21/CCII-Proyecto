@@ -1,4 +1,5 @@
 #include <SFML/Graphics.hpp>
+#include <SFML/Network.hpp>
 #include "./Game/Game.h"
 
 int main(int argc, char *argv[])
