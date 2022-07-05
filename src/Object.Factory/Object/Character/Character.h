@@ -18,7 +18,7 @@ private:
 public:
     Character(std::string, float);
     ~Character();
-    void move();
+    void move(sf::Event *);
     virtual void events(sf::Event *);
     virtual void draw(sf::RenderWindow *);
 };

@@ -1,6 +1,5 @@
 #include <SFML/Graphics.hpp>
 #include "./Object.Factory.h"
-#include "./Object/Character/Bob.Character.h"
 
 Object *ObjectFactory::getObject(int _object)
 {

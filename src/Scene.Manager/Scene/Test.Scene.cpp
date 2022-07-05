@@ -1,20 +1,29 @@
-#include <SFML/Graphics.hpp>
 #include "./Test.Scene.h"
-#include "./../../Object.Factory/Object/Object.h"
 
-TestScene::TestScene(): Scene() {
+TestScene::TestScene(sf::RenderWindow *_window): Scene(_window) {
     //std::string h = "Main Character";
     std::cout << gm::Object::BobCharacter << std::endl;
-    this->addObject("Main Character", gm::Object::BobCharacter);
+    this->addObject("player_1_character", gm::Object::BobCharacter);
+    //this->addObject("player_2_character", gm::Object::BobCharacter);
+    //this->addCamera("player_1_camera", sf::FloatRect(0.f, 0.f, (float)(_window->getSize().x), (float)(_window->getSize().y)));
     //this->getObject("Main Character");
 }
 
 TestScene::~TestScene() {}
 
-void TestScene::draw(sf::RenderWindow *_window) {
-    this->getObject("Main Character")->draw(_window);
+void TestScene::draw() {
+    sf::View vpersona = sf::View(sf::FloatRect(0.f, 0.f, (float)(this->getWindow()->getSize().x), (float)(this->getWindow()->getSize().y)));
+    //vpersona.setCenter(this->getObject("Main Character")->getPosition());
+    //vpersona.move();
+    //_window->setView(vpersona);
+    this->getObject("player_1_character")->draw(this->getWindow());
+    //this->getObject("Second Character")->draw(_window);
 }
 
 void TestScene::events(sf::Event *_event) {
-    this->getObject("Main Character")->events(_event);
+    this->getObject("player_1_character")->events(_event);
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::R)) {
+        SceneManager::get()->top();
+        SceneManager::get()->push(this->getWindow(), gm::Scene::NoneScene);
+    }
 }

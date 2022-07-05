@@ -2,16 +2,16 @@
 #define TESTSCENE_H
 
 #include <SFML/Graphics.hpp>
+#include "./../Scene.Manager.h"
 #include "./Scene.h"
-#include "./../../Object.Factory/Object/Character/Bob.Character.h"
 
 class TestScene : public Scene
 {
 private:
 public:
-    TestScene();
+    TestScene(sf::RenderWindow *);
     ~TestScene();
-    void draw(sf::RenderWindow *);
+    void draw();
     void events(sf::Event *);
 };
 

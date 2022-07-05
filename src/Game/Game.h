@@ -2,6 +2,7 @@
 #define GAME_H
 
 #include <SFML/Graphics.hpp>
+#include "./../Scene.Manager/Scene.Manager.h"
 
 class Game
 {
@@ -10,14 +11,13 @@ private:
     sf::VideoMode *size;
     std::string name;
     int styleScreen;
-    int scene;
 
 public:
     Game(sf::VideoMode *, std::string, int);
     ~Game();
     void render();
-    void draw(sf::Event &);
-    void close(sf::Event&);
+    void draw(sf::Event *);
+    void close(sf::Event *);
 };
 
 #include "./Game.cpp"

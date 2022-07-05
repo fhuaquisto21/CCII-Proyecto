@@ -50,6 +50,7 @@ void Object::setTexture(std::string _urlImage)
 void Object::setSprite()
 {
     this->sprite->setTexture(*this->texture);
+    this->sprite->setOrigin((float)(this->sprite->getTexture()->getSize().x) / 2.f, (float)(this->sprite->getTexture()->getSize().y) / 2.f);
 }
 
 bool Object::isCollitionWith(Object *_other) {

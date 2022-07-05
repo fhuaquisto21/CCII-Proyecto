@@ -1,14 +1,11 @@
 #include <SFML/Graphics.hpp>
+//#include "./../Scene.Manager/Scene.Manager.h"
 #include "./Game.h"
-#include "./../Object.Factory/Object/Character/Bob.Character.h"
-#include "./../Object.Factory/Object.Factory.h"
-#include "./../Scene.Manager/Scene/Test.Scene.h"
 
 unsigned int const FPS = 60;
 sf::Color *const BG_COLOR = new sf::Color(255, 255, 255, 255);
 
 //Object *bobCharacter = ObjectFactory::getObject(gm::Object::BobCharacter);
-Scene *scenet = new TestScene;
 
 Game::Game(sf::VideoMode *_size, std::string _name, int _styleScreen)
 {
@@ -29,38 +26,22 @@ Game::Game(sf::VideoMode *_size, std::string _name, int _styleScreen)
     }
 
     this->window->setFramerateLimit(FPS);
+    SceneManager::get()->push(this->window, gm::Scene::TestScene);
 }
 
-void Game::draw(sf::Event &event)
+void Game::draw(sf::Event *event)
 {
     this->window->clear(*BG_COLOR);
-    scenet->draw(this->window);
-    scenet->events(&event);
-    //bobCharacter->draw(this->window);
-    //bobCharacter->events(&event);
-    //this->window->draw(*bobCharacter->getSprite());
-    /*
-    if (event.type == sf::Event::KeyPressed)
-    {
-        if (event.key.code == sf::Keyboard::Up)
-            bobCharacter->move(sf::Keyboard::Up);
-        if (event.key.code == sf::Keyboard::Down)
-            bobCharacter->move(sf::Keyboard::Down);
-        if (event.key.code == sf::Keyboard::Left)
-            bobCharacter->move(sf::Keyboard::Left);
-        if (event.key.code == sf::Keyboard::Right)
-            bobCharacter->move(sf::Keyboard::Right);
-    }
-    */
-    
+    SceneManager::get()->top()->draw();
+    SceneManager::get()->top()->events(event);
     this->window->display();
 }
 
-void Game::close(sf::Event &event)
+void Game::close(sf::Event *event)
 {
-    while (this->window->pollEvent(event))
+    while (this->window->pollEvent(*event))
     {
-        if (event.type == sf::Event::Closed)
+        if (event->type == sf::Event::Closed)
             this->window->close();
     }
 }
@@ -69,7 +50,7 @@ void Game::render()
 {
     while (this->window->isOpen())
     {
-        sf::Event event;
+        sf::Event *event = new sf::Event;
         this->close(event);
         this->draw(event);
     }

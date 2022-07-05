@@ -2,7 +2,8 @@
 #define SCENEFACTORY_H
 
 #include <SFML/Graphics.hpp>
-#include "./Scene/Scene.h"
+#include "./Scene/Test.Scene.h"
+#include "./Scene/None.Scene.h"
 
 class SceneFactory
 {
@@ -14,5 +15,7 @@ public:
     void operator=(const SceneFactory &) = delete;
     static Scene *getScene(sf::RenderWindow *, int);
 };
+
+#include "./Scene.Factory.cpp"
 
 #endif

@@ -31,6 +31,7 @@ namespace gm {
     namespace Object {
         enum {
             BobCharacter = 0,
+            CharacterCamera = 10,
         };
     }
 }
