@@ -3,7 +3,7 @@
 TestScene::TestScene(sf::RenderWindow *_window): Scene("none", _window) {
     //std::string h = "Main Character";
     std::cout << gm::Object::BobCharacter << std::endl;
-    this->addObject("player_1_character", gm::Object::BobCharacter);
+    this->addObject(this->getMode(), "player_1_character", gm::Object::BobCharacter);
     //this->addObject("player_2_character", gm::Object::BobCharacter);
     //this->addCamera("player_1_camera", sf::FloatRect(0.f, 0.f, (float)(_window->getSize().x), (float)(_window->getSize().y)));
     //this->getObject("Main Character");

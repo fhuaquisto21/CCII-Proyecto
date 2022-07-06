@@ -3,12 +3,12 @@
 ServerScene::ServerScene(sf::RenderWindow *_window) : Scene("server", _window)
 {
     // std::string h = "Main Character";
-    this->listener = new sf::TcpListener;
-    this->listener->setBlocking(false);
-    this->listener->listen(4000);
-    std::cout << sf::IpAddress::getLocalAddress().toString() << std::endl;
+    this->socket = new sf::UdpSocket;
+    this->socket->setBlocking(false);
+    this->socket->bind(3001);
+    //std::cout << sf::IpAddress::getPublicAddress().toString() << std::endl;
     std::cout << this->getMode() << std::endl;
-    this->addObject("player_1_character", gm::Object::BobCharacter);
+    this->addObject(this->getMode(), "player_1_character", gm::Object::BobCharacter);
     // this->addObject("player_2_character", gm::Object::BobCharacter);
     // this->addCamera("player_1_camera", sf::FloatRect(0.f, 0.f, (float)(_window->getSize().x), (float)(_window->getSize().y)));
     // this->getObject("Main Character");
@@ -22,14 +22,15 @@ void ServerScene::draw()
     // vpersona.setCenter(this->getObject("Main Character")->getPosition());
     // vpersona.move();
     //_window->setView(vpersona);
-    sf::TcpSocket client;
-    client.setBlocking(false);
-    if (this->listener->accept(client) != sf::Socket::Done)
-    {
-        std::cout << "Error" << std::endl;
-    } else {
-        std::cout << "Socket connect" << std::endl;
+    char in[128];
+    std::size_t received;
+    sf::IpAddress sender;
+    unsigned short senderPort;
+    if (this->socket->receive(in, sizeof(in), received, sender, senderPort) == sf::Socket::Done) {
+        std::cout << "Message received from client " << sender << ":" << senderPort << ": \"" << in << "\"" << std::endl;
     }
+
+
     this->getObject("player_1_character")->draw(this->getWindow());
     // this->getObject("Second Character")->draw(_window);
 }

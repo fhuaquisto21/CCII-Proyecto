@@ -11,9 +11,9 @@ Scene::Scene(std::string _mode, sf::RenderWindow *_window)
 
 Scene::~Scene() {}
 
-void Scene::addObject(std::string _key, int _object)
+void Scene::addObject(std::string _mode, std::string _key, int _object)
 {
-    Object *obj = ObjectFactory::getObject("none", _object);
+    Object *obj = ObjectFactory::getObject(_mode, _object);
     this->objects.insert(std::make_pair(_key, obj));
 }
 

@@ -23,7 +23,7 @@ private:
 public:
     Scene(std::string, sf::RenderWindow *);
     ~Scene();
-    void addObject(std::string, int);
+    void addObject(std::string, std::string, int);
     void addCamera(std::string, sf::FloatRect);
     void addFState(std::string, float);
     void addBState(std::string, bool);

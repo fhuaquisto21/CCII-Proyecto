@@ -9,7 +9,7 @@
 class ClientScene : public Scene
 {
 private:
-    sf::TcpSocket *socket;
+    sf::UdpSocket *socket;
 public:
     ClientScene(sf::RenderWindow *);
     ~ClientScene();

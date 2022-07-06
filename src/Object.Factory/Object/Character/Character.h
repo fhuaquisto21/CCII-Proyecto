@@ -2,6 +2,7 @@
 #define CHARACTER_H
 
 #include <SFML/Graphics.hpp>
+#include <SFML/Network.hpp>
 #include "./../Object.h"
 
 /**
@@ -14,13 +15,10 @@ private:
     float speed;
     int munition;
     sf::Vector2f *translate;
-
-    void moveServer();
-    void moveClient();
 public:
     Character(std::string, std::string, float);
     ~Character();
-    void move(sf::Event *);
+    void move(sf::Event *, sf::UdpSocket *);
     virtual void events(sf::Event *);
     virtual void draw(sf::RenderWindow *);
 };
