@@ -43,6 +43,7 @@ void Weapon::draw(sf::RenderWindow * _window) {
     _window->draw(*this->getSprite());
     this->move(new sf::Event);
     this->disparar(_window);
+    this->collisions();
     
 }
  void Weapon::disparar(sf::RenderWindow * _window) {
@@ -88,9 +89,32 @@ void Weapon::draw(sf::RenderWindow * _window) {
 	{
 		_window->draw(bullets[i].shape);
 	}
-
 		
  }
+
+ void Character::collisions(){
+    if(this->getSprite()->getPosition().x < 30.f)
+   {
+        this->getSprite()->setPosition(30.f, this->getSprite()->getPosition().y);
+   }
+
+    if(this->getSprite()->getPosition().y < 50.f)
+   {
+        this->getSprite()->setPosition(this->getSprite()->getPosition().x, 50.f);
+   }
+
+   if(this->getSprite()->getPosition().x + this->getSprite()->getGlobalBounds().width > 830)
+   {
+        this->getSprite()->setPosition(830 - this->getSprite()->getGlobalBounds().width, this->getSprite()->getPosition().y);
+   }
+
+    if(this->getSprite()->getPosition().y + this->getSprite()->getGlobalBounds().height > 650 )
+   {
+        this->getSprite()->setPosition(this->getSprite()->getPosition().x,650  - this->getSprite()->getGlobalBounds().height);
+   }
+}
+
+ 
 
  
 

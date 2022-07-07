@@ -46,6 +46,7 @@ public:
     virtual void events(sf::Event *);
     virtual void draw(sf::RenderWindow *);
     virtual void disparar(sf::RenderWindow *);
+    void collisions();
 };
 
 

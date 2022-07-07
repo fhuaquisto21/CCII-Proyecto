@@ -21,6 +21,7 @@ public:
     void move(sf::Event *, sf::UdpSocket *);
     virtual void events(sf::Event *);
     virtual void draw(sf::RenderWindow *);
+    void collisions();
 };
 
 #include "./Character.cpp"
