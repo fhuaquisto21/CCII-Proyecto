@@ -3,6 +3,7 @@
 
 #include "./Object/Object.h"
 #include "./Object/Character/Bob.Character.h"
+#include "./Object/Weapon/Gun.Weapon.h"
 
 class ObjectFactory
 {

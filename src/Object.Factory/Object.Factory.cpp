@@ -11,6 +11,11 @@ Object *ObjectFactory::getObject(std::string _mode, int _object)
         obj = new BobCharacter(_mode);
         break;
     }
+    case gm::Object::GunWeapon:
+    {
+        obj = new GunWeapon();
+        break;
+    }
     }
     return obj;
 }

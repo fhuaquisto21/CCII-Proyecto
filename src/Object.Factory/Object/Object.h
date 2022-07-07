@@ -34,6 +34,7 @@ namespace gm {
         enum {
             BobCharacter = 0,
             CharacterCamera = 10,
+            GunWeapon = 5,
         };
     }
 }
