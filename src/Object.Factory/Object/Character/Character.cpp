@@ -31,9 +31,14 @@ void Character::move(sf::Event *_event, sf::UdpSocket * _socket = nullptr)
 void Character::events(sf::Event *_event)
 {
     
-    this->move(new sf::Event);
+    this->move(_event);
     //std::cout << this->translate->x << " " << this->translate->y << std::endl;
     //printf("\e[1;1H\e[2J");
+    /*
+    std::cout << _event->type << std::endl;
+    std::cout << sf::Event::GainedFocus << std::endl;
+    std::cout << sf::Event::LostFocus << std::endl;
+    */
 }
 
 void Character::draw(sf::RenderWindow * _window) {

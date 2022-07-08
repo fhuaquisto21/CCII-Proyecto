@@ -10,6 +10,8 @@ class ServerScene : public Scene
 {
 private:
     sf::UdpSocket *socket;
+    std::vector<sf::IpAddress> ips;
+    std::vector<int> ports;
 public:
     ServerScene(sf::RenderWindow *);
     ~ServerScene();

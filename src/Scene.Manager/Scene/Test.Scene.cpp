@@ -13,7 +13,7 @@ TestScene::TestScene(sf::RenderWindow *_window): Scene("none", _window) {
 TestScene::~TestScene() {}
 
 void TestScene::draw() {
-    sf::View vpersona = sf::View(sf::FloatRect(0.f, 0.f, (float)(this->getWindow()->getSize().x), (float)(this->getWindow()->getSize().y)));
+    //sf::View vpersona = sf::View(sf::FloatRect(0.f, 0.f, (float)(this->getWindow()->getSize().x), (float)(this->getWindow()->getSize().y)));
     //vpersona.setCenter(this->getObject("Main Character")->getPosition());
     //vpersona.move();
     //_window->setView(vpersona);
